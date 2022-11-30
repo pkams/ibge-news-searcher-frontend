@@ -24,20 +24,20 @@ self.__precacheManifest = [
     "url": "/ibge-news-searcher-frontend/static/media/news.0fe17cd9.svg"
   },
   {
-    "revision": "ed533866b5c83114c7dddbcbc2288b19",
-    "url": "/ibge-news-searcher-frontend/static/media/Inter-Medium.ed533866.ttf"
-  },
-  {
     "revision": "079af0e2936ccb99b391ddc0bbb73dcb",
     "url": "/ibge-news-searcher-frontend/static/media/Inter-Regular.079af0e2.ttf"
   },
   {
-    "revision": "980c7e8757e741bb49c7c96513924c61",
-    "url": "/ibge-news-searcher-frontend/static/media/Inter-Black.980c7e87.ttf"
-  },
-  {
     "revision": "275bfea5dc74c33f51916fee80feae67",
     "url": "/ibge-news-searcher-frontend/static/media/Inter-Bold.275bfea5.ttf"
+  },
+  {
+    "revision": "ed533866b5c83114c7dddbcbc2288b19",
+    "url": "/ibge-news-searcher-frontend/static/media/Inter-Medium.ed533866.ttf"
+  },
+  {
+    "revision": "980c7e8757e741bb49c7c96513924c61",
+    "url": "/ibge-news-searcher-frontend/static/media/Inter-Black.980c7e87.ttf"
   },
   {
     "revision": "0be9ced1420fd4406f59444a6546c81b",
