@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/ibge-news-searcher-frontend/precache-manifest.dcc2f366bd0521d7b06f2f0b1318562a.js"
+  "/ibge-news-searcher-frontend/precache-manifest.7b989ba6f264fbdaeeb562dfe310f5b9.js"
 );
 
 workbox.clientsClaim();
