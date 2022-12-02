@@ -1,0 +1,8 @@
+.footer__text {
+}
+
+@media screen and (max-width: 425px) {
+  .footer__text {
+    font-size: 0.8rem;
+  }
+}
