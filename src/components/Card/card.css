@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 200px;
+  min-height: 200px;
   box-shadow: rgba(255, 255, 255, 0.15) 2.4px 2.4px 3.2px;
   margin-bottom: 10px;
 }
@@ -27,7 +27,6 @@
 }
 
 .card__content-title {
-  font-family: 'Inter', sans-serif;
   font-weight: bold;
 }
 
@@ -37,7 +36,6 @@
 }
 
 .card__content-edit {
-  font-family: 'Inter', sans-serif;
   font-style: italic;
 }
 

@@ -4,7 +4,7 @@ import './about.css';
 export default function About() {
   return (
     <section className="about">
-      <h3>PT-BR</h3>
+      <h2>PT-BR</h2>
       <p className="about__text">
         O aplicativo "News Searcher Web App" foi implementado como projeto de
         finalização do curso de Desenvolvedor Web da Practicum by Yandex. O
@@ -19,7 +19,7 @@ export default function About() {
         escalado para outras APIs de noticias utilizando os mesmos conceitos.
       </p>
 
-      <h3>ENG</h3>
+      <h2>ENG</h2>
       <p className="about__text">
         The "News Searcher Web App" application was implemented as a final
         project for the Practicum by Yandex Web Developer course. The objective

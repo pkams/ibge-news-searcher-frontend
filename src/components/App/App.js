@@ -8,6 +8,7 @@ import Navigation from '../Navigation/Navigation';
 import Footer from '../Footer/Footer';
 import About from '../About/About';
 import api from '../../utils/api.js';
+import { validateDate, convertDate, sortByKey } from '../../utils/utils.js';
 
 require('dotenv').config();
 
@@ -24,39 +25,6 @@ function App() {
   const [itemsToShow, setItemsToShow] = useState(3);
   const ref = createRef();
 
-  function validate_date(s) {
-    s = convert_date(s, 'US');
-    if (!/^[0-3]?[0-9].[0-3]?[0-9].(?:[0-9]{2})?[0-9]{2}$/.test(s)) {
-      return false;
-    }
-    const parts = s.split('/').map((p) => parseInt(p, 10));
-    const d = new Date(parts[2], parts[0] - 1, parts[1]);
-
-    return (
-      d.getDate() === parts[1] &&
-      d.getMonth() + 1 === parts[0] &&
-      d.getFullYear() === parts[2]
-    );
-  }
-
-  function convert_date(s, fmt) {
-    let s_splitted = s.split('-');
-    if (fmt === 'US') {
-      s = `${s_splitted[1]}/${s_splitted[2]}/${s_splitted[0]}`;
-    } else {
-      s = `${s_splitted[2]}/${s_splitted[1]}/${s_splitted[0]}`;
-    }
-    return s;
-  }
-
-  function sort_by_key(array, key) {
-    return array.sort(function (a, b) {
-      var x = a[key];
-      var y = b[key];
-      return x < y ? -1 : x > y ? 1 : 0;
-    });
-  }
-
   useEffect(() => {
     if (
       (localStorage.getItem('uf') !== null) &
@@ -69,7 +37,7 @@ function App() {
       setsearchTrigger(true);
     }
     api.getUf().then((response) => {
-      setUfs(sort_by_key(response, 'nome'));
+      setUfs(sortByKey(response, 'nome'));
     });
   }, []);
 
@@ -79,7 +47,7 @@ function App() {
     }
 
     api.getCities(selectedUf).then((response) => {
-      setCities(sort_by_key(response, 'nome'));
+      setCities(sortByKey(response, 'nome'));
     });
   }, [selectedUf]);
 
@@ -88,7 +56,7 @@ function App() {
     if (button == null) {
       return;
     }
-    if ((selectedCity !== '0') & validate_date(selectedDate)) {
+    if ((selectedCity !== '0') & validateDate(selectedDate)) {
       setDisableButton(false);
     } else {
       setDisableButton(true);
@@ -97,7 +65,7 @@ function App() {
 
   useEffect(() => {
     if (
-      !validate_date(selectedDate) |
+      !validateDate(selectedDate) |
       (selectedCity === '0') |
       (selectedUf === '0')
     ) {
@@ -152,7 +120,7 @@ function App() {
               searching={searching}
               refVar={ref}
               disableButton={disableButton}
-              convert_date={convert_date}
+              convertDate={convertDate}
               itemsToShow={itemsToShow}
               setItemsToShow={setItemsToShow}
             />

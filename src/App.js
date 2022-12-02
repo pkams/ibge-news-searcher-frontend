@@ -10,7 +10,7 @@ function App() {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedNews, setSelectedNews] = useState('');
 
-  function convert_date(s, fmt) {
+  function convertDate(s, fmt) {
     let s_splitted = s.split('-');
     if (fmt === 'US') {
       s = `${s_splitted[1]}/${s_splitted[2]}/${s_splitted[0]}`;
@@ -20,8 +20,8 @@ function App() {
     return s;
   }
 
-  function validate_date(s) {
-    s = convert_date(s, 'US');
+  function validateDate(s) {
+    s = convertDate(s, 'US');
     if (!/^\d\d\/\d\d\/\d\d\d\d$/.test(s)) {
       return false;
     }
@@ -68,10 +68,10 @@ function App() {
 
   useEffect(() => {
     console.log(
-      !validate_date(selectedDate) && selectedCity !== '0' && selectedUf !== '0'
+      !validateDate(selectedDate) && selectedCity !== '0' && selectedUf !== '0'
     );
     if (
-      !validate_date(selectedDate) |
+      !validateDate(selectedDate) |
       (selectedCity === '0') |
       (selectedUf === '0')
     ) {
@@ -81,12 +81,12 @@ function App() {
     console.log(
       `https://apinoticias.tedk.com.br/api/?q=${selectedCity
         .split(' ')
-        .join('%20')}%20${selectedUf}&date=${convert_date(selectedDate)}`
+        .join('%20')}%20${selectedUf}&date=${convertDate(selectedDate)}`
     );
     fetch(
       `https://apinoticias.tedk.com.br/api/?q=${selectedCity
         .split(' ')
-        .join('%20')}%20${selectedUf}&date=${convert_date(selectedDate)}`,
+        .join('%20')}%20${selectedUf}&date=${convertDate(selectedDate)}`,
       { mode: 'no-cors' }
     )
       .then((res) => {
